@@ -1,0 +1,52 @@
+object Form1: TForm1
+  Left = 417
+  Height = 240
+  Top = 434
+  Width = 320
+  Caption = 'Mikrotik devices status'
+  ClientHeight = 220
+  ClientWidth = 320
+  Menu = MainMenu1
+  OnActivate = FormActivate
+  LCLVersion = '1.8.2.0'
+  object ControlBar1: TControlBar
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 320
+    Align = alTop
+    TabOrder = 0
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 197
+    Width = 320
+    Panels = <>
+  end
+  object Panel1: TPanel
+    AnchorSideTop.Control = ControlBar1
+    AnchorSideBottom.Control = StatusBar1
+    Left = 0
+    Height = 157
+    Top = 40
+    Width = 320
+    Align = alClient
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
+    TabOrder = 2
+  end
+  object MainMenu1: TMainMenu
+    left = 280
+    top = 48
+    object MenuItem1: TMenuItem
+      Caption = 'Файл'
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Устройство'
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Помощь'
+    end
+  end
+end

@@ -1,0 +1,22 @@
+object DMain: TDMain
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 256
+  VerticalOffset = 210
+  Width = 309
+  PPI = 96
+  object SQLite3Con1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    left = 48
+    top = 16
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLite3Con1
+    left = 48
+    top = 80
+  end
+end
