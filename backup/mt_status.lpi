@@ -30,7 +30,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="mt_status.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -49,6 +49,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="device_manage.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Frm_Dev_Mng"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -5,14 +5,16 @@ unit dm;
 interface
 
 uses
-  Classes, SysUtils, sqlite3conn, sqldb, FileUtil;
+  Classes, SysUtils, sqlite3conn, sqldb, db, BufDataset, FileUtil;
 
 type
 
   { TDMain }
 
   TDMain = class(TDataModule)
+    DS_main: TDataSource;
     SQLite3Con1: TSQLite3Connection;
+    SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
   private
 
@@ -39,40 +41,40 @@ begin
   //Создание базы данных
   SQLite3Con1.Close();
     try
-    // Since we're making this database for the first time,
-    // check whether the file already exists
+    // Проверяем наличие файла базы
     newFile := not FileExists(SQLite3Con1.DatabaseName);
 
     if newFile then
     begin
-      // Create the database and the tables
+      // Создаём базу и таблицу
       try
         SQLite3Con1.Open;
         SQLTransaction1.Active := true;
 
-        // Here we're setting up a table named "DATA" in the new database
+        // Создаём таблицу "DATA" в новой базе
         SQLite3Con1.ExecuteDirect('CREATE TABLE "DATA"('+
                     ' "id" Integer NOT NULL PRIMARY KEY AUTOINCREMENT,'+
                     ' "Device_Name" Char(128) NOT NULL,'+
                     ' "Device_Type" Char(128),'+
                     ' "Device_OS" Char(128),'+
+                    ' "Device_OS_current" Char(128),'+
                     ' "Device_Update_Time" DateTime,'+
                     ' "Device_IP" Char(15),'+
                     ' "User_Name" Char(128),'+
                     ' "User_Pass" Char(128));');
 
-        // Creating an index based upon id in the DATA Table
+        // Создаём индекс по id в таблице DATA
         SQLite3Con1.ExecuteDirect('CREATE UNIQUE INDEX "Data_id_idx" ON "DATA"( "id" );');
 
         SQLTransaction1.Commit;
 
-        //ShowMessage('Succesfully created database.');
+        //ShowMessage('База данных создана.');
       except
-        //ShowMessage('Unable to Create new Database');
+        //ShowMessage('Не могу создать базу данных');
       end;
     end;
   except
-    //ShowMessage('Unable to check if database file exists');
+    //ShowMessage('Не могу проверить есть база или нет');
   end;
 end;
 

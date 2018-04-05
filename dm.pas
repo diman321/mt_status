@@ -5,14 +5,16 @@ unit dm;
 interface
 
 uses
-  Classes, SysUtils, sqlite3conn, sqldb, FileUtil;
+  Classes, SysUtils, sqlite3conn, sqldb, db, BufDataset, FileUtil;
 
 type
 
   { TDMain }
 
   TDMain = class(TDataModule)
+    DS_main: TDataSource;
     SQLite3Con1: TSQLite3Connection;
+    SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
   private
 

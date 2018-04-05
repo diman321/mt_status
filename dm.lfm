@@ -1,6 +1,6 @@
 object DMain: TDMain
   OldCreateOrder = False
-  Height = 150
+  Height = 314
   HorizontalOffset = 256
   VerticalOffset = 210
   Width = 309
@@ -18,5 +18,21 @@ object DMain: TDMain
     Database = SQLite3Con1
     left = 48
     top = 80
+  end
+  object DS_main: TDataSource
+    DataSet = SQLQuery1
+    left = 48
+    top = 208
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Con1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT * FROM DATA;'
+    )
+    Params = <>
+    left = 48
+    top = 144
   end
 end
